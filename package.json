@@ -1,16 +1,19 @@
 {
   "name": "bigg",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Share gulp files, and create your own build tool.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "bigg": "cli.js"
+    "bigg": "bigg.js"
   },
   "dependencies": {
-    "gulp": "^3.9.1",
+    "interpret": "^1.0.1",
+    "liftoff": "^2.2.4",
+    "lodash": "^4.13.1",
+    "minimist": "^1.2.0",
     "require-relative": "^0.8.7"
   },
   "author": "",
