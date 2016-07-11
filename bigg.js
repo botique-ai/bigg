@@ -46,7 +46,7 @@ function invoke (env) {
 
   if (env.configPath) {
     const biggConfig = require(env.configPath);
-    require(env.modulePath).default(biggConfig);
+    require(env.modulePath).default(biggConfig, env, argv);
   } else {
     console.log('No ', Bigg.configName, ' found.');
   }

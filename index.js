@@ -3,7 +3,7 @@
 const relative = require('require-relative');
 const _ = require('lodash');
 
-module.exports.default = function bigg(biggConfig) {
+module.exports.default = function bigg(biggConfig, env, argv) {
   const allTasks = {};
   
   biggConfig.biggs.forEach((biggFile) => {
@@ -18,7 +18,7 @@ module.exports.default = function bigg(biggConfig) {
     console.error('No task found!');
   }
   else {
-    toRun();
+    toRun(biggConfig, env, argv);
   }
 };
 
