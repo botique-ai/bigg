@@ -6,8 +6,19 @@ const _ = require('lodash');
 module.exports.default = function bigg(biggConfig, env, argv) {
   const allTasks = {};
   
-  biggConfig.biggs.forEach((biggFile) => {
-    const tasks = relative(biggFile);
+  biggConfig.biggs.forEach((biggInstance) => {
+    let tasks;
+
+    if (typeof biggInstance === 'string') {
+      tasks = relative(biggInstance);
+    }
+    else if (typeof biggInstance === 'function') {
+      tasks = {};
+      tasks[biggInstance.name] = biggInstance;
+    }
+    else if (typeof biggInstance === 'object') {
+      tasks = biggInstance;
+    }
 
     _.extend(allTasks, tasks);
   });
@@ -18,7 +29,6 @@ module.exports.default = function bigg(biggConfig, env, argv) {
     console.error('No task found!');
   }
   else {
-    toRun(biggConfig, env, argv);
+    toRun(argv);
   }
 };
-
