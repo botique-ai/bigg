@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "bigg": "bigg.js"
+    "bigg": "lib/bin/bigg.js"
   },
   "dependencies": {
     "interpret": "^1.0.1",
@@ -19,7 +19,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "bigg": "^0.2.4",
+    "bigg": "^0.3.0",
     "bigg-botique": "^0.1.5"
   }
 }
