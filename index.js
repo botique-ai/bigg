@@ -23,10 +23,12 @@ module.exports.default = function bigg(biggConfig, env, argv) {
     _.extend(allTasks, tasks);
   });
 
-  const toRun = allTasks[process.argv[2] || biggConfig.defaultTask];
+  const taskToRun = process.argv[2] || biggConfig.defaultTask;
+
+  const toRun = allTasks[taskToRun];
 
   if (!toRun) {
-    console.error('No task found!');
+    console.error(`Task ${taskToRun} found! Available tasks are:`, _.keys(allTasks));
   }
   else {
     toRun(argv);
