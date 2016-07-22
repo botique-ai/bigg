@@ -19,7 +19,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "bigg": "^0.3.0",
+    "bigg": "^0.3.1",
     "bigg-botique": "^0.1.5"
   }
 }
