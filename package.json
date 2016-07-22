@@ -1,6 +1,6 @@
 {
   "name": "bigg",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Share gulp files, and create your own build tool.",
   "main": "index.js",
   "scripts": {
