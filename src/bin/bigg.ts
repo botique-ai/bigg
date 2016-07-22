@@ -1,9 +1,8 @@
 #!/usr/bin/env node
+import Liftoff = require('liftoff');
+import minimist = require('minimist');
 
-'use strict';
-
-const Liftoff = require('liftoff');
-const argv = require('minimist')(process.argv.slice(2));
+const argv:any = minimist(process.argv.slice(2));
 
 const Bigg = new Liftoff({
   name: 'bigg',
@@ -21,19 +20,6 @@ Bigg.launch({
 }, invoke);
 
 function invoke (env) {
-  if (argv.verbose) {
-    console.log('LIFTOFF SETTINGS:', this);
-    console.log('CLI OPTIONS:', argv);
-    console.log('CWD:', env.cwd);
-    console.log('LOCAL MODULES PRELOADED:', env.require);
-    console.log('SEARCHING FOR:', env.configNameRegex);
-    console.log('FOUND CONFIG AT:',  env.configPath);
-    console.log('CONFIG BASE DIR:', env.configBase);
-    console.log('YOUR LOCAL MODULE IS LOCATED:', env.modulePath);
-    console.log('LOCAL PACKAGE.JSON:', env.modulePackage);
-    console.log('CLI PACKAGE.JSON', require('./package'));
-  }
-
   if (process.cwd() !== env.cwd) {
     process.chdir(env.cwd);
     console.log('Working directory changed to', env.cwd);
@@ -48,6 +34,7 @@ function invoke (env) {
     const biggConfig = require(env.configPath);
     require(env.modulePath).default(biggConfig, env, argv);
   } else {
-    console.log('No ', Bigg.configName, ' found.');
+    console.error('No ', Bigg.configName, ' found.');
+    process.exit(1);
   }
 }

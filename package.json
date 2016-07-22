@@ -17,5 +17,9 @@
     "require-relative": "^0.8.7"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "bigg": "^0.2.4",
+    "bigg-botique": "^0.1.5"
+  }
 }
