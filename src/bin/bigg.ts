@@ -2,7 +2,9 @@
 import Liftoff = require('liftoff');
 import minimist = require('minimist');
 
-const argv:any = minimist(process.argv.slice(2));
+const argv:any = minimist(process.argv.slice(2), {
+  stopEarly: true
+});
 
 const Bigg = new Liftoff({
   name: 'bigg',
