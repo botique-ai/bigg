@@ -7,7 +7,7 @@ const argv:any = minimist(process.argv.slice(2));
 const Bigg = new Liftoff({
   name: 'bigg',
   moduleName: 'bigg',
-  configName: 'bigg.config',
+  configName: 'biggfile',
   extensions: require('interpret').jsVariants
 });
 
